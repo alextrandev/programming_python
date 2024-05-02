@@ -1,13 +1,16 @@
 """
 File: input.py
 --------------
-Take 2 input, convert in to integer and return the sum
+Prompt user to choose an action, take inputs and return something.
+Current actions: Sum and multiply of 2 numbers, dice roll, greeting
 """
+
+import random
 
 def main():
   prompt = ""
   while (prompt != "exit"):
-    prompt = input("Type sum for calculate a sum, multiply for a multiply, hello for a greeting and exit to end the program: ")
+    prompt = input("Type sum, multiply, hello or dice. Type exit to end the program: ")
     match prompt:
       case "sum":
         sum()
@@ -15,6 +18,8 @@ def main():
         multiply()
       case "hello":
         hello()
+      case "dice":
+        dice()
       case "exit":
         print("Goodbye!")
       case _:
@@ -39,6 +44,11 @@ def multiply():
   num2 = int(input("Enter second number: "))
   total = num1 * num2
   print(f"Result: {num1} x {num2} = {total}")
+
+def dice():
+  dice = int(input("What is the number of sides on your dice? "))
+  roll = random.randint(1, dice)
+  print(f"Your roll is {roll}")
 
 # call the main funtion
 __name__ == '__main__' and main()
