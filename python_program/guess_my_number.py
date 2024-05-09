@@ -20,5 +20,18 @@ def main():
     guess = int(input("Try again. What's your guess? "))
 
   print (f"You're right! The number is {number}")
+
+  play_again()
+
+def play_again():
+    prompt = input("Play again? (y/n) ")
+    if (prompt == "y"):
+      main()
+    elif (prompt == "n"):
+      print("Goodbye!")
+      exit()
+    else:
+      play_again()
+
   
 __name__ == '__main__' and main()
