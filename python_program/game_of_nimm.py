@@ -8,17 +8,21 @@ def main():
     print("The Ancient Game of Nimm")
 
     stones = 20
+    current_player = 1
 
     while (stones > 0):
+      next_player = current_player == 1 and 2 or 1
       print(f"There are {stones} stones left.")
 
-      query = int(input("Would you like to remove 1 or 2 stones? "))
+      query = int(input(f"Player {current_player} would you like to remove 1 or 2 stones? "))
 
       while (query != 1 and query != 2):
-        query = int(input("Please enter 1 or 2: "))
+        query = int(input(f"Player {current_player} please enter 1 or 2: "))
 
       stones -= query
+      current_player = next_player
+
       if (stones <= 0):
-         print("Game over")
+         print(f"Player {next_player} wins!")
 
 __name__ == '__main__' and main()
