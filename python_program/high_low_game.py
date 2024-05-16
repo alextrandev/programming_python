@@ -12,6 +12,8 @@ Step 2: Get user choice
 Step 3: Write the game logic
 Step 4: Play multiple rounds
 Step 5: Score system
+Step 6: Safeguard user input
+Step 6: Customed message based on score
 """
 
 import random
@@ -23,6 +25,7 @@ def main():
     print("--------------------------------")
     score = 0
 
+    # game start. for loop to prompt player to play multiple rounds
     for i in range(NUM_ROUNDS):
       player_num = random.randint(1, 100)
       computer_num = random.randint(1, 100)
@@ -31,7 +34,7 @@ def main():
 
       choice = input("Do you think your number is higher or lower than the computer's?: ")
 
-      while (choice != "lower" or choice != "higher"):
+      while (choice != "lower" and choice != "higher"): # loop to ask for a correct input
           choice = input("Please enter either higher or lower: ")
 
       if (choice == "lower" and player_num < computer_num 
@@ -41,9 +44,15 @@ def main():
       else:
           print(f"Aww, that's incorrect. The computer's number was {computer_num}")
       
-      print(f"Your score is now {score}")
+      print(f"Your score is now {score}") # notify score after each round
 
-    print("Thanks for playing!")
+    # end game prints start
+    if (score == 5):
+        print("Wow! You played perfectly!")
+    elif (score >= 2):
+        print("Good job, you played really well!")
+    else:
+        print("Better luck next time!")
 
 if __name__ == "__main__":
     main()
