@@ -21,8 +21,9 @@ import random
 NUM_ROUNDS = 5
 
 def main():
-    print("Welcome to the High-Low Game!")
-    print("--------------------------------")
+    print("+-------------------------------------------+")
+    print("|       Welcome to the High-Low Game!       |")
+    print("+-------------------------------------------+")
     score = 0
 
     # game start. for loop to prompt player to play multiple rounds
@@ -30,29 +31,36 @@ def main():
       player_num = random.randint(1, 100)
       computer_num = random.randint(1, 100)
 
+      print(f"Round {i + 1}")
       print(f"Your number is {player_num}")
 
-      choice = input("Do you think your number is higher or lower than the computer's?: ")
+      choice = input("Your number is higher or lower?: ")
 
       while (choice != "lower" and choice != "higher"): # loop to ask for a correct input
           choice = input("Please enter either higher or lower: ")
 
+      print("") # end of prompt phase new line
+
       if (choice == "lower" and player_num < computer_num 
           or choice == "higher" and player_num > computer_num):
           score += 1
-          print(f"You were right! The computer's number was {computer_num}") 
+          print(f"Correct! The computer's number was {computer_num}") 
       else:
-          print(f"Aww, that's incorrect. The computer's number was {computer_num}")
+          score -= 1
+          print(f"Aww, incorrect. The computer's number was {computer_num}")
       
       print(f"Your score is now {score}") # notify score after each round
+      print(f"---------------------------------------------") # end of round decoration line
 
     # end game prints start
+    print("+-------------------------------------------+")
     if (score == 5):
-        print("Wow! You played perfectly!")
-    elif (score >= 2):
-        print("Good job, you played really well!")
+        print("|        Wow! You played perfectly!         |")
+    elif (score >= 1):
+        print("|     Good job, you played really well!     |")
     else:
-        print("Better luck next time!")
+        print("|          Better luck next time!           |")
+    print("+-------------------------------------------+")
 
 if __name__ == "__main__":
     main()
