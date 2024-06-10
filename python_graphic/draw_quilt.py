@@ -6,12 +6,21 @@ Draw a simple quilt with 8 pathches
 
 from graphics import Canvas
 
+# each patch is a square with this width and height:
 PATCH_SIZE = 100
 CANVAS_WIDTH = PATCH_SIZE * 4
 CANVAS_HEIGHT = PATCH_SIZE * 2
 
 def main():
     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+    draw_square_patch(canvas, 0, 0)
+    draw_circle_patch(canvas, PATCH_SIZE, 0)
+    draw_square_patch(canvas, PATCH_SIZE*2, 0)
+    draw_circle_patch(canvas, PATCH_SIZE*3, 0)
+    draw_circle_patch(canvas, 0, 100)
+    draw_square_patch(canvas, PATCH_SIZE, 100)
+    draw_circle_patch(canvas, PATCH_SIZE*2, 100)
+    draw_square_patch(canvas, PATCH_SIZE*3, 100)
     
 def draw_circle_patch(canvas, start_x, start_y):
     end_x = start_x + PATCH_SIZE
