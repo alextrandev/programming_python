@@ -15,7 +15,20 @@ BRICK_HEIGHT = 12       # The height of each brick in pixels
 BRICKS_IN_BASE = 14     # The number of bricks in the base
 
 def main():
-    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)  
+    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+    draw_brick(
+            canvas,
+            0,
+            0
+        )
+
+def draw_brick(canvas, x, y):
+    canvas.create_rectangle(
+    x, y, 
+    x + BRICK_WIDTH, y + BRICK_HEIGHT, 
+    "yellow", "black"
+)
+    
 
 if __name__ == '__main__':
     main()
