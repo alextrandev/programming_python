@@ -16,10 +16,17 @@ BRICKS_IN_BASE = 14     # The number of bricks in the base
 
 def main():
     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-    draw_brick(
+    for i in range (14):
+        draw_brick_row(canvas, 14 - i, i + 1)
+    
+def draw_brick_row(canvas, n, row):
+    ROW_START_X = (CANVAS_WIDTH - n * BRICK_WIDTH) / 2
+    ROW_START_Y = CANVAS_HEIGHT - row * BRICK_HEIGHT
+    for i in range(n):
+        draw_brick(
             canvas,
-            0,
-            0
+            ROW_START_X + i * BRICK_WIDTH,
+            ROW_START_Y
         )
 
 def draw_brick(canvas, x, y):
