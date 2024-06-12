@@ -6,8 +6,10 @@ A simple list practice: Load a list of nubmer from a file and return the average
 
 def main():
     number_list = load_numbers_from_file("numbers.txt")
-    print(number_list)
-
+    sum_of_list = sum(number_list)
+    len_of_list = len(number_list)
+    avg_of_list = sum_of_list / len_of_list
+    print(avg_of_list)
 
 def load_numbers_from_file(filepath):
     # Loads numbers from a file into a list and returns as a list
@@ -17,9 +19,7 @@ def load_numbers_from_file(filepath):
             cleaned_line = line.strip()
             if cleaned_line != '':
                 numbers.append(float(cleaned_line))
-    
     return numbers
-
 
 if __name__ == '__main__':
     main()
